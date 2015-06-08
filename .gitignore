@@ -31,3 +31,31 @@ DerivedData
 # Carthage/Checkouts
 
 Carthage/Build
+
+*.pbxproj
+
+*.pbxproj
+
+*.pbxproj
+
+*.pbxproj
+
+*.xcworkspacedata
+
+*.xctimeline
+
+*.xcplayground
+
+*.xcworkspacedata
+
+*.xcworkspacedata
+
+*.pbxproj
+
+20150608-2.playground/Sources/SupportCode.swift
+
+test.playground/Sources/SupportCode.swift
+
+20150608-1/20150608-1.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+
+20150608-1/20150608-1.xcodeproj/project.pbxproj
