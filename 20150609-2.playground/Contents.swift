@@ -18,10 +18,10 @@ println("specialCharReturn:\(specialCharReturn)")
 let 🌎 = "🐶🐺🐱🐭🐹🐰🐸🐯🐨🐻🐷🐦🐧🐼🐘🐑🐴🐒🐵🐗🐮🐽🐤🐥🐣🐔🐍🐢🐛🐝🐜🐞🐌🐃🐀🐏🐄🐋🐬🐳🐟🐠🐙🐅"
 println("诺亚方舟上的小动物数：\(count(🌎))")
 
-let 熊: Character = "🐻"
-let 猫: Character = "🐱"
+let 熊: String = "🐻"
+let 猫: String = "🐱"
 let 🐼 = 熊 + 猫
-//报错
+//用+只能用string型进行运算
 
 let emptyString1 = ""
 let emptyString = String()
