@@ -69,3 +69,11 @@ MyPlayground.playground/Results.playgrounddata
 MyPlayground.playground/Sources/SupportCode.swift
 
 20150615-2.playground/Contents.swift
+
+*.plist
+
+a123456/a123456Tests/Info.plist
+
+*.plist
+
+*.xib
