@@ -5,7 +5,7 @@ import UIKit
 //便于我们访问外部类成员，但它会使程序结构变得不清楚，使程序可读性变差
 class Employee {
     var no : Int = 0
-    var name : String = ""
+    var name : String = "abc"
     var job : String = ""
     var salary : Double = 0
     var dept : Department = Department()
