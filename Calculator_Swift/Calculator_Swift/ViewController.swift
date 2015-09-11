@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func numberButtonPressed(sender: AnyObject) {
-        var btn : UIButton = sender as UIButton
+        var btn : UIButton = sender as! UIButton
         mainLabel.text = logic.updateMainLabelStringByNumberTag(btn.tag, withMainLabelString: mainLabel.text!)
     }
 }
