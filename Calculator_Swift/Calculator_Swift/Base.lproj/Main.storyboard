@@ -16,13 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cal.png" translatesAutoresizingMaskIntoConstraints="NO" id="u03-bb-9wm">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="1" y="0.0" width="410" height="800"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkB-Vw-raP">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <state key="highlighted" image="7-down.png"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                </variation>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cal.png" translatesAutoresizingMaskIntoConstraints="NO" id="iCu-JS-5gY">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhk-Z9-Y9X">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="50"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="131"/>
+                                    <rect key="frame" x="-16" y="56" width="368" height="131"/>
                                 </variation>
                             </label>
                             <button opaque="NO" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMB-hZ-jqO">
@@ -32,7 +49,7 @@
                                 </state>
                                 <state key="highlighted" image="7-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="9" y="139" width="80" height="80"/>
+                                    <rect key="frame" x="47" y="157" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cVO-34-Vsl"/>
@@ -45,7 +62,7 @@
                                 </state>
                                 <state key="highlighted" image="8-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="139" width="80" height="80"/>
+                                    <rect key="frame" x="122" y="157" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jxx-Wt-jwX"/>
@@ -58,7 +75,7 @@
                                 </state>
                                 <state key="highlighted" image="9-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="205" y="139" width="80" height="80"/>
+                                    <rect key="frame" x="197" y="157" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tdp-NM-rDT"/>
@@ -71,7 +88,7 @@
                                 </state>
                                 <state key="highlighted" image="Divide-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="303" y="139" width="80" height="80"/>
+                                    <rect key="frame" x="272" y="157" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="operandPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EDG-vw-2KD"/>
@@ -84,7 +101,7 @@
                                 </state>
                                 <state key="highlighted" image="4-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="9" y="248" width="80" height="80"/>
+                                    <rect key="frame" x="47" y="232" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5Q9-O8-epE"/>
@@ -97,7 +114,7 @@
                                 </state>
                                 <state key="highlighted" image="5-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="248" width="80" height="80"/>
+                                    <rect key="frame" x="122" y="232" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2a8-Xg-fue"/>
@@ -110,7 +127,7 @@
                                 </state>
                                 <state key="highlighted" image="6-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="205" y="248" width="80" height="80"/>
+                                    <rect key="frame" x="197" y="232" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="F2F-rm-Mkp"/>
@@ -123,7 +140,7 @@
                                 </state>
                                 <state key="highlighted" image="Multiply-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="303" y="248" width="80" height="80"/>
+                                    <rect key="frame" x="272" y="232" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="operandPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fqO-SU-cdy"/>
@@ -136,7 +153,7 @@
                                 </state>
                                 <state key="highlighted" image="1-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="9" y="360" width="80" height="80"/>
+                                    <rect key="frame" x="47" y="307" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cYS-2F-byI"/>
@@ -149,23 +166,10 @@
                                 </state>
                                 <state key="highlighted" image="2-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="360" width="80" height="80"/>
+                                    <rect key="frame" x="122" y="307" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="59U-Jg-8kG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-3r-Y8O">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="3.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" image="3-down.png"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="205" y="360" width="80" height="80"/>
-                                </variation>
-                                <connections>
-                                    <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="JOe-tT-OAm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMs-Et-gch">
@@ -175,7 +179,7 @@
                                 </state>
                                 <state key="highlighted" image="Minus-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="303" y="360" width="80" height="80"/>
+                                    <rect key="frame" x="272" y="307" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="operandPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="e48-te-ekj"/>
@@ -188,10 +192,23 @@
                                 </state>
                                 <state key="highlighted" image="c-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="9" y="469" width="80" height="80"/>
+                                    <rect key="frame" x="47" y="382" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="clearPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5VZ-vP-ioZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-3r-Y8O">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="3.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="3-down.png"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="197" y="307" width="80" height="80"/>
+                                </variation>
+                                <connections>
+                                    <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="JOe-tT-OAm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x99-W1-XlJ">
@@ -201,7 +218,7 @@
                                 </state>
                                 <state key="highlighted" image="0-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="469" width="80" height="80"/>
+                                    <rect key="frame" x="122" y="382" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="numberButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0F1-eY-jPF"/>
@@ -214,7 +231,7 @@
                                 </state>
                                 <state key="highlighted" image="Decimal-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="205" y="469" width="80" height="80"/>
+                                    <rect key="frame" x="197" y="382" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="decimalPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="c1F-Gy-cSN"/>
@@ -227,7 +244,7 @@
                                 </state>
                                 <state key="highlighted" image="Plus-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="303" y="469" width="80" height="80"/>
+                                    <rect key="frame" x="272" y="382" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="operandPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Vju-oN-C4G"/>
@@ -240,30 +257,19 @@
                                 </state>
                                 <state key="highlighted" image="Equal-down.png"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="569" width="80" height="80"/>
+                                    <rect key="frame" x="122" y="457" width="80" height="80"/>
                                 </variation>
                                 <connections>
                                     <action selector="equalsPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IQd-vE-vUf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkB-Vw-raP">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <state key="highlighted" image="7-down.png"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                </variation>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cal.png" translatesAutoresizingMaskIntoConstraints="NO" id="iCu-JS-5gY">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="-20" width="400" height="800"/>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="u03-bb-9wm"/>
+                                <exclude reference="xkB-Vw-raP"/>
+                                <exclude reference="iCu-JS-5gY"/>
                                 <exclude reference="hhk-Z9-Y9X"/>
                                 <exclude reference="OMB-hZ-jqO"/>
                                 <exclude reference="Cez-GX-0lp"/>
@@ -275,19 +281,20 @@
                                 <exclude reference="hVT-uN-W7r"/>
                                 <exclude reference="F6z-7a-1VZ"/>
                                 <exclude reference="rGc-2P-D0b"/>
-                                <exclude reference="ghN-3r-Y8O"/>
                                 <exclude reference="tMs-Et-gch"/>
                                 <exclude reference="DWf-bi-PmA"/>
+                                <exclude reference="ghN-3r-Y8O"/>
                                 <exclude reference="x99-W1-XlJ"/>
                                 <exclude reference="Q1Q-0z-jIr"/>
                                 <exclude reference="AAp-qy-hwW"/>
                                 <exclude reference="Rdi-iZ-d3g"/>
-                                <exclude reference="xkB-Vw-raP"/>
-                                <exclude reference="iCu-JS-5gY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="u03-bb-9wm"/>
+                                <exclude reference="xkB-Vw-raP"/>
+                                <exclude reference="iCu-JS-5gY"/>
                                 <include reference="hhk-Z9-Y9X"/>
                                 <include reference="OMB-hZ-jqO"/>
                                 <include reference="Cez-GX-0lp"/>
@@ -299,15 +306,13 @@
                                 <include reference="hVT-uN-W7r"/>
                                 <include reference="F6z-7a-1VZ"/>
                                 <include reference="rGc-2P-D0b"/>
-                                <include reference="ghN-3r-Y8O"/>
                                 <include reference="tMs-Et-gch"/>
                                 <include reference="DWf-bi-PmA"/>
+                                <include reference="ghN-3r-Y8O"/>
                                 <include reference="x99-W1-XlJ"/>
                                 <include reference="Q1Q-0z-jIr"/>
                                 <include reference="AAp-qy-hwW"/>
                                 <include reference="Rdi-iZ-d3g"/>
-                                <exclude reference="xkB-Vw-raP"/>
-                                <include reference="iCu-JS-5gY"/>
                             </mask>
                         </variation>
                     </view>

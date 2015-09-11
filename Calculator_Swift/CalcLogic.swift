@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import UIKit
 
 enum Operator : Int {
-    case Plus = 200,Minus,Multiply,Divide
+    case Plus = 200, Minus, Multiply, Divide
     case Default = 0
 }
 
@@ -22,6 +21,8 @@ class CalcLogic {
     //临时保存MainLabel内容，为true时，输入数字MainLabel内容被清为0
     var isMainLabelTextTemporary : Bool
     
+    
+    //构造器
     init () {
         println("CalcLogic init")
         lastRetainValue = 0.0
@@ -29,8 +30,12 @@ class CalcLogic {
         opr = .Default
     }
     
-
+    //析构器
+    deinit {
+        println("CalcLogic deinit")
+    }
     
+    //更新主标签内容
     func updateMainLabelStringByNumberTag(tag : Int,withMainLabelString mainLabelString : String) -> String {
         var string = mainLabelString
         
@@ -53,6 +58,7 @@ class CalcLogic {
         
     }
     
+    //判断字符串中是否包含小数点
     func doesStringContainDecimal(string : String) -> Bool {
         for ch in string {
             if ch == "." {
@@ -66,32 +72,33 @@ class CalcLogic {
         var currentValue = (mainLabelString as NSString).doubleValue
         
 
-        switch Operator.Default{
-            case .Plus:
-                lastRetainValue += currentValue
-            case .Minus:
-                lastRetainValue -= currentValue
-            case .Multiply:
-                lastRetainValue *= currentValue
-            case .Divide:
-                if currentValue != 0 {
-                    lastRetainValue /= currentValue
-                } else {
-                    opr = .Default
-                    isMainLabelTextTemporary = true
-                    return "错误"
-                }
-                Default :
-                    lastRetainValue = currentValue
+        switch opr {
+        case .Plus:
+            lastRetainValue += currentValue
+        case .Minus:
+            lastRetainValue -= currentValue
+        case .Multiply:
+            lastRetainValue *= currentValue
+        case .Divide:
+            if currentValue != 0 {
+                lastRetainValue /= currentValue
+            } else {
+                opr = .Default
+                isMainLabelTextTemporary = true
+                return "错误"
+            }
+        default:
+            lastRetainValue = currentValue
         }
         
+        //记录当前操作符，下次计算时使用
         opr = Operator(rawValue : tag)!
         
         let resultString = NSString(format : "%g",lastRetainValue)
         
         isMainLabelTextTemporary = true
         
-        return resultString
+        return resultString as String
         
     }
     
@@ -102,8 +109,6 @@ class CalcLogic {
         opr = .Default
     }
     
-    deinit {
-        println("CalcLogic deinit")
-    }
+    
 }
 
