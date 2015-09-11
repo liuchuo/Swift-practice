@@ -29,12 +29,12 @@ class ViewController: UIViewController {
 
     @IBAction func operandPressed(sender: AnyObject) {
         var btn : UIButton = sender as! UIButton
-        mainLabel.text = logic.calculateByTag(btn.tag, withMainLabelString: mainLabel.text)
+        mainLabel.text = logic.calculateByTag(btn.tag, withMainLabelString: mainLabel.text!)
     }
     
     @IBAction func equalsPressed(sender: AnyObject) {
         var btn : UIButton = sender as! UIButton
-        mainLabel.text = logic.calculateByTag(btn.tag, withMainLabelString: mainLabel.text)
+        mainLabel.text = logic.calculateByTag(btn.tag, withMainLabelString: mainLabel.text!)
     }
     
     @IBAction func clearPressed(sender: AnyObject) {
@@ -43,8 +43,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func decimalPressed(sender: AnyObject) {
-        if logic.doesStringContainDecimal(mainLabel.text) == false {
-            let string = mainLabel.text + "."
+        if logic.doesStringContainDecimal(mainLabel.text!) == false {
+            let string = mainLabel.text! + "."
             mainLabel.text = string
         }
     }
