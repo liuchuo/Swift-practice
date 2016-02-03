@@ -77,3 +77,5 @@ a123456/a123456Tests/Info.plist
 *.plist
 
 *.xib
+
+MyPlayground.playground/Contents.swift
