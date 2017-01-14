@@ -1,0 +1,40 @@
+// 获取数据库文件的路径
+    func getFilePath() -> String {
+        let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
+        let DBPath = (documentPath! as NSString).appendingPathComponent(DBFILE_NAME)
+        print("数据库的地址是：\(DBPath)")
+        return DBPath
+    }
+    
+    func createDataBaseTableIfNeeded() {
+        // 只接受C语言的字符串，所以要把DBPath这个NSString类型的转换为cString类型，用UTF8的形式表示
+        let cDBPath = getFilePath().cString(using: String.Encoding.utf8)
+        
+        // 第一个参数：数据库文件路径，这里是我们定义的cDBPath
+        // 第二个参数：数据库对象，这里是我们定义的db
+        // SQLITE_OK是SQLite内定义的宏，表示成功打开数据库
+        if sqlite3_open(cDBPath, &db) != SQLITE_OK {
+            // 失败
+            print("数据库打开失败~！")
+        } else {
+            // 创建表的SQL语句
+            print("数据库打开成功~！")
+            let createStudentTableSQL = "CREATE TABLE IF NOT EXISTS 't_StuInfo' ('sno' TEXT NOT NULL PRIMARY KEY, 'sname' TEXT, 'os' INTEGER, 'dataStructure' INTEGER, 'english' INTEGER, 'history' INTEGER, 'java' INTEGER, 'math' INTEGER, 'pe' INTEGER, 'softworeEngineer' INTEGER);"
+            if execSQL(SQL: createStudentTableSQL) == false {
+                // 失败
+                print("执行创建表的SQL语句出错~")
+            } else {
+                print("创建表的SQL语句执行成功！")
+            }
+        // 执行SQL语句的方法，传入SQL语句执行
+    func execSQL(SQL : String) -> Bool {
+        let cSQL = SQL.cString(using: String.Encoding.utf8)
+        let errmsg : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>? = nil
+        if sqlite3_exec(db, cSQL, nil, nil, errmsg) == SQLITE_OK {
+            return true
+        } else {
+            print("执行SQL语句时出错，错误信息为：\(errmsg)")
+            return false
+        }
+    }
+    
