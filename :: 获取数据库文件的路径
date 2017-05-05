@@ -1,4 +1,4 @@
-// 获取数据库文件的路径
+ // 获取数据库文件的路径
     func getFilePath() -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
         let DBPath = (documentPath! as NSString).appendingPathComponent(DBFILE_NAME)
@@ -17,16 +17,18 @@
             // 失败
             print("数据库打开失败~！")
         } else {
-            // 创建表的SQL语句
+            // 创建表的SQL语句（根据自己定义的数据model灵活改动）
             print("数据库打开成功~！")
-            let createStudentTableSQL = "CREATE TABLE IF NOT EXISTS 't_StuInfo' ('sno' TEXT NOT NULL PRIMARY KEY, 'sname' TEXT, 'os' INTEGER, 'dataStructure' INTEGER, 'english' INTEGER, 'history' INTEGER, 'java' INTEGER, 'math' INTEGER, 'pe' INTEGER, 'softworeEngineer' INTEGER);"
+            let createStudentTableSQL = "CREATE TABLE IF NOT EXISTS 't_Student' ('stuNum' TEXT NOT NULL PRIMARY KEY AUTOINCREMENT, 'stuName' TEXT);"
             if execSQL(SQL: createStudentTableSQL) == false {
                 // 失败
                 print("执行创建表的SQL语句出错~")
             } else {
                 print("创建表的SQL语句执行成功！")
             }
-        // 执行SQL语句的方法，传入SQL语句执行
+        }
+    }
+     // 执行SQL语句的方法，传入SQL语句执行
     func execSQL(SQL : String) -> Bool {
         let cSQL = SQL.cString(using: String.Encoding.utf8)
         let errmsg : UnsafeMutablePointer<UnsafeMutablePointer<Int8>?>? = nil
@@ -37,4 +39,3 @@
             return false
         }
     }
-    
