@@ -2,6 +2,8 @@
 
 import UIKit
 
+
+// -----------------------Swift初见--------------------------------------
 // 简单输出
 print("hello, world")
 // print可以自定义连接符或者自定义结束符
@@ -418,6 +420,3 @@ let printerSuccess = try? send(job: 1884, toPrinter: "Mergenthaler")
 
 
 // 可以使用where对参数做出一些约束，比如必须是实现了某一个协议，或者说具有一个特定的父类
-
-
-
