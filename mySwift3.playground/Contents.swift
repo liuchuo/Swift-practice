@@ -248,4 +248,176 @@ var numbers = [20, 19, 7, 12]
 func9(arr: numbers, condition: lessThanTen)
 
 
-// 
+// 闭包
+// 函数实际上是一种特殊的闭包，它是一段之后能够被调取的代码
+// 可以使用{}创建一个匿名闭包，使用in将参数和返回值类型声明与闭包函数体进行分离
+numbers.map({
+    (number: Int) -> Int in
+    let result = 3 * number
+    return result
+})
+
+// 更简洁的写法：如果一个闭包的类型已知，比如作为一个回调函数，就可以忽略参数的类型和返回值。单个语句闭包会把它语句的值当作结果返回
+let value7 = numbers.map({number in 3 * number})
+print(value7)
+
+// 可以通过参数的位置而不是参数名字来引用参数
+// 如果一个闭包是作为最后一个参数传给一个函数的时候，它可以直接跟在括号后面
+// 当一个闭包是传给函数的唯一参数，可以完全忽略括号
+let arr2 = numbers.sorted { $0 > $1 }
+print(arr2)
+
+
+// 使用class来创建一个类
+// 使用一个构造函数来初始化类实例，使用init来创建一个构造器
+class className1 {
+    var value = 0
+    var name = "hahaha"
+    init(value: Int) {
+        self.value = value
+    }
+    func func10() -> String {
+        return "A shape with \(value) sides"
+    }
+}
+
+
+// 创建一个类的实例，在类名后面加括号。使用点来访问实例的属性和方法
+var instanceName1 = className1(value: 5)
+instanceName1.value = 2
+var stringName2 = instanceName1.func10()
+
+
+// 子类在后面加上:父类名字就能继承自父类～创建类的时候并不需要一个标准的根类，所以可以忽略父类
+// 如果要重写父类的方法，必须使用override标记（如果没有添加override就重写负累方法的话编译器会报错）。编译器也同样会检测override标记的方法是否确实在父类中
+class className2: className1 {
+    var sideLength: Double
+    init(sideLength: Double, value: Int) {
+        self.sideLength = sideLength
+        super.init(value: value)
+        name = "xixi"
+    }
+    override func func10() -> String {
+        print("lalala~")
+        return name
+    }
+}
+
+
+// 除了储存简单的属性之外，属性可以有getter和setter
+class className3 {
+    var sideLength: Double = 2
+    var perimeter: Double {
+        get {
+            return 3.0 * sideLength
+        }
+        set {
+            sideLength = newValue / 3.0
+        }
+    }
+}
+
+var instanceName2 = className3()
+print(instanceName2.perimeter)
+instanceName2.perimeter = 8
+print(instanceName2.sideLength)
+
+
+// willSet和didSet 在设置一个新值之前或者之后运行的代码
+class className4 {
+    var age: Int = 0 {
+        willSet {
+            print("we will set an new value \(newValue) to age")
+        }
+        didSet {
+            print("we have changed \(oldValue) to \(age)")
+        }
+    }
+}
+
+var instanceName4 = className4()
+instanceName4.age = 8
+instanceName4.age = 12
+
+
+// 使用enum创建枚举 ?????
+enum Rank: Int {
+    case Ace = 1
+    case Two, Three, Four, Five, Six
+    case Jack, Queen, King
+    func simpleDescription() -> String {
+        switch self {
+            case .Ace:
+                return "ace"
+            case .Jack:
+                return "jack"
+        default:
+            return String(self.rawValue)
+        
+        }
+    }
+}
+let ace = Rank.Ace
+let aceRawValue = ace.rawValue
+
+
+// 使用struct创建结构体。结构体和类相似，比如方法和构造器。结构体是传值，类是传引用
+struct Card {
+    var rank = 1
+    func func11() -> String {
+        return "hello"
+    }
+}
+
+
+// 使用protocol来声明协议
+// mutating 关键字用来标记一个会修改结构体的方法
+protocol ExampleProtocol {
+    var value11: Int {get}
+    mutating func adjust()
+}
+// 类、枚举和结构体都可以实现协议
+
+
+// Extension 扩展是给已经存在的类，结构体，枚举类型和协议增加新的功能
+// 扩展能够增加新功能，但是不能覆盖已有的功能
+
+
+// 错误处理
+// 定义错误类型：
+enum PrinterError: Error {
+    case OutOfPaper
+    case NoToner
+    case OnFire
+}
+// 使用throw关键字来抛出一个错误、使用throws关键字来表示一个可以抛出错误的函数。
+// 如果在函数中抛出一个错误，这个函数会立刻返回并且调用该函数的代码进行错误处理
+func send(job: Int, toPrinter printerName: String) throws -> String {
+    if printerName == "Never Has Toner" {
+        throw PrinterError.NoToner
+    }
+    return "Job sent"
+}
+// 在do-catch中进行错误处理，使用try标记抛出错误的代码
+do {
+    let printerResponse = try send(job: 1440, toPrinter: "Gutenberg")
+    print(printerResponse)
+} catch PrinterError.OnFire {
+    print("I'll just put this over here, with the rest of the fire")
+} catch let printerError as PrinterError {
+    print("Printer error: \(printerError).")
+} catch {
+    print(error)
+}
+// 错误处理的另一种方法：使用try? 将结果转换为可选的。如果函数抛出错误，该错误会被抛弃并且结果为nil。否则的话，结果会是一个包含函数返回值的可选值
+let printerSuccess = try? send(job: 1884, toPrinter: "Mergenthaler")
+// 使用defer代码块表示在函数返回之前，函数中最后会执行的代码
+
+
+// 泛型
+
+
+// 可以使用where对参数做出一些约束，比如必须是实现了某一个协议，或者说具有一个特定的父类
+
+
+
