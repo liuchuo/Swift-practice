@@ -67,7 +67,17 @@ var optionalName: String? = nil
 if let name = optionalName {
     print("hello, \(name)")
 }
+
+
 // ?可以规避实例为nil时，调用实例方法报错的现象，因为当实例为nil时候，因为实例是可选类型，所以语句会直接忽略后面的不再执行，故而不会出现异常（也就是说?前面的值为nil时，?后面的操作会被全部忽略）
+// nil不可以用在不是可选值的常量或者变量中，如果一个常量或者变量可能会没有值，那就必须声明为可选值
+// 如果声明了可选值但是没有初始化，它的默认值为nil，如果不是可选值，且没有初始化，可以定义，但是必须初始化后才能使用
+var myValue: String? = nil
+
+
+// 如果我们非常确定一个可选值一定有值的话，我们可以用"!"对它进行强制拆包
+var myValue2: String? = "hello, everyone!"
+print(myValue2!)
 
 
 // 另一种处理可选值的方法是通过使用??操作符来提供一个默认值，如果不加??，该变量会输出nil
@@ -170,8 +180,72 @@ let (name2, _, _) = tuples1
 print("my name is \(name2)!~~~")
 
 // 元组可以使用类似下标的形式访问
-print 
+print("my name is \(tuples1.0) and my age is \(tuples1.1)")
+
+// 也可以给元组定义标签，这样就可以直接使用标签的名字进行访问啦
+let tuples2 = (name: "TomCat", age:"22")
+print("hello, my name is \(tuples2.name) and my age is \(tuples2.age)")
 
 
+// 可以用元组来让一个函数返回多个值
+func myfunc4(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+    var min = scores[0]
+    var max = scores[1]
+    var sum = 0
+    // balabala...
+    return (min, max, sum)
+}
 
 
+// 函数可以带有可变个数的参数
+func func8(arr: Int...) -> Int {
+    var sum = 0
+    for number in arr {
+        sum += number
+    }
+    return sum
+}
+func8()
+func8(arr: 1, 2, 3)
+
+
+// 函数可以嵌套，被嵌套的函数可以访问外侧函数的变量
+func func5() -> Int {
+    var y = 10
+    func add() {
+        y += 20
+    }
+    add()
+    return y
+}
+
+
+// 函数可以作为返回值
+func func6() -> ((Int) -> Int) {
+    func func7(number: Int) -> Int {
+        return 1 + number
+    }
+    return func7
+}
+
+var value6 = func6()
+print(value6(7))
+
+
+// 函数可以作为参数
+func func9(arr: [Int], condition: (Int) -> Bool) -> Bool {
+    for item in arr {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+func lessThanTen(number: Int) -> Bool {
+    return number < 10
+}
+var numbers = [20, 19, 7, 12]
+func9(arr: numbers, condition: lessThanTen)
+
+
+// 
