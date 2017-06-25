@@ -293,8 +293,8 @@ instanceName1.value = 2
 var stringName2 = instanceName1.func10()
 
 
-// 子类在后面加上:父类名字就能继承自父类～创建类的时候并不需要一个标准的根类，所以可以忽略父类
-// 如果要重写父类的方法，必须使用override标记（如果没有添加override就重写负累方法的话编译器会报错）。编译器也同样会检测override标记的方法是否确实在父类中
+// 子类在后面加上“:父类名字”就能继承自父类～创建类的时候并不需要一个标准的根类，所以可以忽略父类
+// 如果要重写父类的方法，必须使用override标记（如果没有添加override就重写父类方法的话编译器会报错）。编译器也同样会检测override标记的方法是否确实在父类中
 class className2: className1 {
     var sideLength: Double
     init(sideLength: Double, value: Int) {
