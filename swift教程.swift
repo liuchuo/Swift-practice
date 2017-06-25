@@ -255,4 +255,77 @@ let optionalNumber: Int? = 3 things.append(optionalNumber) // 警告
 things.append(optionalNumber as Any) // 没有警告
 
 
+//扩展
+扩展就是为一个已有的类、结构体、枚举类型或者协议类型添加新功能。
+这包括在没有权限获取原始源代码的情 况下扩展类型的能力
+扩展和 Objective-C 中的分类类似。(与 Objective-C 不同的是，Swift的扩展没有名字。)
+使用关键字 extension 来声明扩展：
+extension SomeType {
+// 为 SomeType 添加的新功能写到这里
+}
+如果你通过扩展为一个已有类型添加新功能，那么新功能对该类型的所有已有实例都是可用的，即使它们是在这个扩展定义之前创建的。
+
+
+//协议
+协议的定义方式与类、结构体和枚举的定义非常相似:
+protocol SomeProtocol {
+// 这里是协议的定义部分
+}
+遵循 多个协议时，各协议之间用逗号( , )分隔:
+struct SomeStructure: FirstProtocol, AnotherProtocol { 
+    // 这里是结构体的定义部分
+}
+
+拥有父类的类在遵循协议时，应该将父类名放在协议名之前，以逗号分隔:
+class SomeClass: SomeSuperClass, FirstProtocol, AnotherProtocol { 
+    // 这里是类的定义部分
+}
+
+
+// 泛型
+泛型代码让你能够根据自定义的需求，编写出适用于任意类型、灵活可重用的函数及类型。它能让你避免代码的
+重复，用一种清晰和抽象的方式来表达代码的意图。
+泛型函数可以适用于任何类型，下面的 swapTwoValues(_:_:) 函数是上面三个函数的泛型版本:
+func swapTwoValues<T>(_ a: inout T, _ b: inout T) { 
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+
+var someInt = 3
+var anotherInt = 107 swapTwoValues(&someInt, &anotherInt)
+// someInt 现在 107, and anotherInt 现在 3
+var someString = "hello"
+var anotherString = "world"
+swapTwoValues(&someString, &anotherString)
+// someString 现在 "world", and anotherString 现在 "hello"
+
+
+
+//访问控制
+Swift 为代码中的实体提供了五种不同的访问级别。这些访问级别不仅与源文件中定义的实体相关，同时也与源 文件所属的模块相关。
+• 开放访问和公开访问可以访问同一模块源文件中的任何实体，在模块外也可以通过导入该模块来访问源文件 里的所有实体。通常情况下，框架中的某个接口可以被任何人使用时，你可以将其设置为开放或者公开访 问。
+• 内部访问可以访问同一模块源文件中的任何实体，但是不能从模块外访问该模块源文件中的实体。通常情况 下，某个接口只在应用程序或框架内部使用时，你可以将其设置为内部访问。
+• 文件私有访问限制实体只能被所定义的文件内部访问。当需要把这些细节被整个文件使用的时候，使用文件 私有访问隐藏了一些特定功能的实现细节。
+• 私有访问限制实体只能在所定义的作用域内使用。需要把这些细节被整个作用域使用的时候，使用文件私有 访问隐藏了一些特定功能的实现细节。
+通过修饰符 open，public，internal，filepart，private 来声明实体的访问级别:
+public class SomePublicClass {}
+internal class SomeInternalClass {}
+fileprivate class SomeFilePrivateClass {}
+private class SomePrivateClass {}
+public var somePublicVariable = 0
+internal let someInternalConstant = 0
+fileprivate func someFilePrivateFunction() {}
+private func somePrivateFunction() {}
+
+
+
+//溢出运算符
+在默认情况下，当向一个整数赋予超过它容量的值时，Swift 默认会报错，而不是生成一个无效的数。这个行为 为我们在运算过大或着过小的数的时候提供了额外的安全性。
+然而，也可以选择让系统在数值溢出的时候采取截断处理，而非报错。可以使用 Swift 提供的三个溢出运算符来
+让系统支持整数溢出运算。这些运算符都是以 & 开头的:
+• 溢出加法 &+ 
+• 溢出减法 &- 
+• 溢出乘法 &*
+
 
