@@ -328,7 +328,7 @@ instanceName2.perimeter = 8
 print(instanceName2.sideLength)
 
 
-// willSet和didSet 在设置一个新值之前或者之后运行的代码
+// willSet和didSet 在设置一个新值之前或之后运行的代码
 class className4 {
     var age: Int = 0 {
         willSet {
@@ -345,7 +345,7 @@ instanceName4.age = 8
 instanceName4.age = 12
 
 
-// 使用enum创建枚举 ?????
+// 使用enum创建枚举
 enum Rank: Int {
     case Ace = 1
     case Two, Three, Four, Five, Six
