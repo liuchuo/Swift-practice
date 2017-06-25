@@ -23,7 +23,7 @@ myVariable1 = 56
 var myVariable2:Double = 6
 
 
-// 值永远的不会被显式转换为其他类型，必须显式转换
+// 值永远的不会被隐式转换为其他类型，必须显式转换
 let string1 = "the label is"
 let integer1 = 94
 let string2 = string1 + String(integer1)
