@@ -156,7 +156,6 @@ func myfunc2(name: String, adr: String) -> Void {
 func myfunc3( _ name: String, _ adr: String) -> Void {
     print("My name is \(name), my address is \(adr)")
 }
-
 // 外部调用的时候使用的是参数标签名（外部参数名）
 myfunc1(name: "John", Address: "1234")
 myfunc2(name: "John", adr: "1234")
@@ -173,7 +172,7 @@ var a5 = 1.25e-2 // 0.0125
 
 
 // 元组：可以将多个类型的值聚合起来: 
-// 注意！元组是用小括号括起来的
+// 注意！元组是用小括号括起来的() ; 数组和字典是用大括号括起来的[]
 let tuples1 = ("John", 21, 1.78)
 
 // 如果想要分解元组可以这样：
@@ -184,20 +183,19 @@ print("my name is \(name), my age is \(age), my height is \(height)")
 let (name2, _, _) = tuples1
 print("my name is \(name2)!~~~")
 
-// 元组可以使用类似下标的形式访问
+// 元组可以使用类似下标的形式访问，不过是以"tuplesName.0" "tuplesName.1" "tuplesName.2"的形式
 print("my name is \(tuples1.0) and my age is \(tuples1.1)")
 
-// 也可以给元组定义标签，这样就可以直接使用标签的名字进行访问啦
+// 也可以给元组定义标签，这样就可以直接使用标签的名字进行访问啦～～～
 let tuples2 = (name: "TomCat", age:"22")
 print("hello, my name is \(tuples2.name) and my age is \(tuples2.age)")
 
 
-// 可以用元组来让一个函数返回多个值
+// 可以用元组来做到让一个函数返回多个值
 func myfunc4(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
-    var min = scores[0]
-    var max = scores[1]
-    var sum = 0
-    // balabala...
+    let min = scores[0]
+    let max = scores[1]
+    let sum = 0
     return (min, max, sum)
 }
 
@@ -233,11 +231,12 @@ func func6() -> ((Int) -> Int) {
     return func7
 }
 
-var value6 = func6()
-print(value6(7))
+var value6 = func6() //此时value6是func6的返回值类型，func6的返回值类型是一个函数类型，它表示接收一个int类型，返回一个int类型的函数类型
+print(value6(7))  // print "8\n"
 
 
 // 函数可以作为参数
+// 如下condition就是一个函数类型的参数
 func func9(arr: [Int], condition: (Int) -> Bool) -> Bool {
     for item in arr {
         if condition(item) {
@@ -287,7 +286,8 @@ class className1 {
 }
 
 
-// 创建一个类的实例，在类名后面加括号。使用点来访问实例的属性和方法
+// 创建一个类的实例，不是new不是new不是new！！是在类名后面加括号。
+// 使用点来访问实例的属性和方法
 var instanceName1 = className1(value: 5)
 instanceName1.value = 2
 var stringName2 = instanceName1.func10()
