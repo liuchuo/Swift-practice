@@ -85,7 +85,7 @@ print(myValue2!)
 // 另一种处理可选值的方法是通过使用??操作符来提供一个默认值，如果不加??，该变量会输出nil
 let nickName: String? = nil
 let fullName: String = "John"
-print("Hi, \(nickName ?? fullName)")
+print("Hi, \(nickName ?? fullName)")  //此时会输出"Hi, John\n"
 
 
 // switch和case支持任何类型的数据，还支持以下方式：
@@ -100,7 +100,7 @@ switch vegetable {
     default:
         print("~~~")
 }
-// switch语句必须要写default语句，匹配成功后就会退出switch语句，不会继续执行，所以不需要写break
+// switch语句必须要写default语句，不需要写break语句，因为它匹配成功后就会退出switch语句，不会继续执行
 
 
 // 使用for-in遍历字典，用两个变量来表示每个键值对，字典里面是一个无序的集合
@@ -127,7 +127,7 @@ repeat {
 } while n > 20
 
 
-// 使用..<表示范围，不包含上界，包含上界用...
+// 不包含上界用..<  包含上界用...
 // 如果不希望print换行就写 print("\(i) ", terminator: "")
 for i in 0..<4 {
     print("\(i) ", terminator: "")
@@ -145,6 +145,8 @@ func greet(person: String, day: String) -> String {
 
 // 我们在写函数的时候，如果不提供参数的标签，那么参数的标签就是参数的名字，我们可以在参数名称前面加上自己想要的文字作为函数的参数标签，如果我们不想使用参数标签的话我们可以在参数名称前面加上"_"
 // 下面三个语句，分别使用自定义标签、参数名称以及不使用标签
+
+// 内部使用的时候采用参数名称（内部参数名）
 func myfunc1(name: String, Address adr: String) -> Void {
     print("My name is \(name), my address is \(adr)")
 }
@@ -155,6 +157,7 @@ func myfunc3( _ name: String, _ adr: String) -> Void {
     print("My name is \(name), my address is \(adr)")
 }
 
+// 外部调用的时候使用的是参数标签名（外部参数名）
 myfunc1(name: "John", Address: "1234")
 myfunc2(name: "John", adr: "1234")
 myfunc3("John", "1234")
